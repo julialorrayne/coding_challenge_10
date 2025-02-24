@@ -69,6 +69,7 @@ class Inventory {
     };
  };
 
+
 //test 2
 inventory.placeOrder(601, prod1, 2);
 inventory.listOrders();
