@@ -67,8 +67,21 @@ class Inventory {
     listOrders() {
     this.orders.forEach(order => console.log(order.getOrderDetails()));
     };
+    restockProduct(productId,quantity) {
+        let product = this.products.find(product => product.id === productId);
+        if (product) {
+            product.stock += quantity;
+        };
+    }
  };
 
+
+
+//test 1
+const inventory = new Inventory();
+inventory.addProduct(prod1);
+inventory.listProducts();
+// Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 5"
 
 //test 2
 inventory.placeOrder(601, prod1, 2);
@@ -77,13 +90,9 @@ inventory.listOrders();
 console.log(prod1.getDetails());
 // Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 3"
 
-//test 1
-const inventory = new Inventory();
-inventory.addProduct(prod1);
-inventory.listProducts();
-// Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 5"
-
-
+inventory.restockProduct(101, 5);
+console.log(prod1.getDetails()); 
+// Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 8"
 
 
 
